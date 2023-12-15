@@ -29,7 +29,7 @@ int PrimeCount(int A,int B){
 
 }
 
-int *sort(int *array, int size) {
+int* sort(int* array, int size) {
     bool swapped;
     do {
         swapped = false;

@@ -2,7 +2,7 @@
 #include <math.h>
 #include "funcs.h"
 #include <stdlib.h>
-
+#include <stdbool.h>
 
 int PrimeCount(int A,int B){ // решето
     int N=B-A+1;
@@ -35,10 +35,10 @@ int PrimeCount(int A,int B){ // решето
 
 
 
-void swap(int &a, int &b) {
-    int temp = a;
-    a = b;
-    b = temp;
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
 int partition(int *array, int low, int high) {
@@ -56,13 +56,13 @@ int partition(int *array, int low, int high) {
         }
 
         if (left <= right) {
-            swap(array[left], array[right]);
+            swap(&array[left], &array[right]);
         } else {
             break;
         }
     }
 
-    swap(array[low], array[right]);
+    swap(&array[low], &array[right]);
     return right;
 }
 
@@ -80,10 +80,3 @@ int *sort(int *array, int size) {
 }
 
 
-
-
-
-int main(int argc,char *argv[]){
-
-    printf("%d",PrimeCount(1,100));
-}
